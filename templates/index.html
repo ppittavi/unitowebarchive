@@ -1,0 +1,313 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+{% load static %}
+<html>
+	<head>
+        <title>Unito Web Archive</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="static/assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="static/assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="static/assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="homepage">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1><a href="index.html" id="logo">Unito Web Archive</a></h1>
+								<hr />
+								<p>Siti archiviati da Unito.it</p>
+							</header>
+							<footer>
+								<a href="#banner" class="button circled scrolly">Start</a>
+							</footer>
+						</div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li>
+									<a href="#">Siti archiviati</a>
+									<ul>
+                                    {% for item in  items %}
+                                        {% if item.archive_online %}
+                                        <li><a href="{{ item.new_url }}" target="_blank">{{ item.old_url }}</a></li>
+                                        {% endif %}
+                                    {% endfor %}        
+									</ul>
+								</li>
+								<li><a href="/">Contatti</a></li>
+						<!-- 		<li><a href="left-sidebar.html">Left Sidebar</a></li>-->
+						<!-- 		<li><a href="right-sidebar.html">Right Sidebar</a></li>-->
+						<!-- 		<li><a href="no-sidebar.html">No Sidebar</a></li>-->
+							</ul>
+						</nav>
+
+				</div>
+
+			<!-- Banner -->
+				<section id="banner">
+					<header>
+						<h2>I siti archiviati da Unito non sono più aggiornati <br/> e sono stati archiviati in <strong>HTML</strong> statico.</h2>
+
+						<p>
+							Tutti i contenuti dinamici (ricerche,forms, etc) potrebbero quindi non funzionare.<br/>
+						</p>
+					</header>
+				</section>
+
+			<!-- Carousel -->
+				<section class="carousel">
+					<div class="reel">
+
+            {% load thumbnail %}
+            {% for item in  items %}
+                {% if item.archive_online %}
+						<article>
+                            {% thumbnail item.screenshot '368x256' crop="top" as im %}
+                            <a href="{{ item.new_url }}" class="image featured"><img src="{{ im.url }}" alt="" /></a>
+                            {% endthumbnail %}
+							<header>
+                                <h3><a href="{{ item.new_url }}" target="_blank">{{ item.old_url }}</a></h3>
+							</header>
+                            <p>{{ item.short_desc }}</p>
+							
+						</article>
+                {% endif %}
+            {% endfor %}
+
+					</div>
+				</section>
+
+			<!-- Main -->
+				<div class="wrapper style2">
+
+					<article id="main" class="container special">
+						<a href="#" class="image featured"><img src="static/images/pic06.jpg" alt="" /></a>
+						<header>
+							<h2><a href="#">Come avviene l'archiviazione dei siti?</a></h2>
+							<p>Per archiviare i siti ci avvaliamo del software <a href="http://www.httrack.com/" target="_blank" >Httrack</a>
+							</p>
+						</header>
+						<p>
+                        Quando il codice diviene obsoleto crescono i rischi di sicurezza legati all'obsolescenza stessa. Trattandosi di siti non più mantenuti <a href="http://www.unito.it" target="_blank">Unito.it</a> ha deciso quindi di archiviarli al fine di mantenerne la memoria storica convertendoli però in puro  <a href="https://it.wikipedia.org/wiki/HTML" target="_blank"> HTML </a> 
+						</p>
+						<footer>
+							<a href="#" class="button">Continue Reading</a>
+						</footer>
+					</article>
+
+				</div>
+
+			<!-- Features -->
+				<div class="wrapper style1">
+
+					<section id="features" class="container special">
+						<header>
+							<h2>Hai una pagina nel dominio unito.it che vuoi archiviare?</h2>
+							<p>Segui i tre semplici passaggi sottostanti.</p>
+						</header>
+						<div class="row">
+							<article class="4u 12u(mobile) special">
+								<a href="#" class="image featured"><img src="static/images/pic07.jpg" alt="" /></a>
+								<header>
+									<h3><a href="#">1. BACKUP prima di tutto</a></h3>
+								</header>
+								<p>
+                                    Inutile dire che un backup del codice sorgente è sempre cosa buona e giusta.
+								</p>
+							</article>
+							<article class="4u 12u(mobile) special">
+								<a href="#" class="image featured"><img src="static/images/pic08.jpg" alt="" /></a>
+								<header>
+									<h3><a href="#">2. Richiedi l'archiviazione</a></h3>
+								</header>
+								<p>
+                                 Apri un <a href="https://help.unito.it" target="_blank" >ticket</a> indicando quale pagina vuoi  archiviare.<br/>
+                                    L'archiviazione può durare alcuni giorni ed al termine riceverai una mail di conferma.
+								</p>
+							</article>
+							<article class="4u 12u(mobile) special">
+								<a href="#" class="image featured"><img src="static/images/pic09.jpg" alt="" /></a>
+								<header>
+									<h3><a href="#">3 Verifica e Redirect</a></h3>
+								</header>
+								<p>
+                                    Verifica il backup automatico del sito attraverso l'indirizzo ricevuto via mail, se il risultato ti soddisfa puoi richiedere il redirect della pagina originale verso la pagina archiviata. <br/>
+                                    Da questo momento il vecchio sito non sarà più online e non costituirà più un problema di sicurezza.
+								</p>
+							</article>
+						</div>
+					</section>
+
+				</div>
+
+			<!-- Footer -->
+				<div id="footer">
+					<div class="container">
+                    {% comment "Footer" %}
+                     
+						<div class="row">
+
+							<!-- Tweets -->
+								<section class="4u 12u(mobile)">
+									<header>
+										<h2 class="icon fa-twitter circled"><span class="label">Tweets</span></h2>
+									</header>
+									<ul class="divided">
+										<li>
+											<article class="tweet">
+												Amet nullam fringilla nibh nulla convallis tique ante sociis accumsan.
+												<span class="timestamp">5 minutes ago</span>
+											</article>
+										</li>
+										<li>
+											<article class="tweet">
+												Hendrerit rutrum quisque.
+												<span class="timestamp">30 minutes ago</span>
+											</article>
+										</li>
+										<li>
+											<article class="tweet">
+												Curabitur donec nulla massa laoreet nibh. Lorem praesent montes.
+												<span class="timestamp">3 hours ago</span>
+											</article>
+										</li>
+										<li>
+											<article class="tweet">
+												Lacus natoque cras rhoncus curae dignissim ultricies. Convallis orci aliquet.
+												<span class="timestamp">5 hours ago</span>
+											</article>
+										</li>
+									</ul>
+								</section>
+
+							<!-- Posts -->
+								<section class="4u 12u(mobile)">
+									<header>
+										<h2 class="icon fa-file circled"><span class="label">Posts</span></h2>
+									</header>
+									<ul class="divided">
+										<li>
+											<article class="post stub">
+												<header>
+													<h3><a href="#">Nisl fermentum integer</a></h3>
+												</header>
+												<span class="timestamp">3 hours ago</span>
+											</article>
+										</li>
+										<li>
+											<article class="post stub">
+												<header>
+													<h3><a href="#">Phasellus portitor lorem</a></h3>
+												</header>
+												<span class="timestamp">6 hours ago</span>
+											</article>
+										</li>
+										<li>
+											<article class="post stub">
+												<header>
+													<h3><a href="#">Magna tempus consequat</a></h3>
+												</header>
+												<span class="timestamp">Yesterday</span>
+											</article>
+										</li>
+										<li>
+											<article class="post stub">
+												<header>
+													<h3><a href="#">Feugiat lorem ipsum</a></h3>
+												</header>
+												<span class="timestamp">2 days ago</span>
+											</article>
+										</li>
+									</ul>
+								</section>
+
+							<!-- Photos -->
+								<section class="4u 12u(mobile)">
+									<header>
+										<h2 class="icon fa-camera circled"><span class="label">Photos</span></h2>
+									</header>
+									<div class="row 25%">
+										<div class="6u">
+											<a href="#" class="image fit"><img src="static/images/pic10.jpg" alt="" /></a>
+										</div>
+										<div class="6u$">
+											<a href="#" class="image fit"><img src="static/images/pic11.jpg" alt="" /></a>
+										</div>
+										<div class="6u">
+											<a href="#" class="image fit"><img src="static/images/pic12.jpg" alt="" /></a>
+										</div>
+										<div class="6u$">
+											<a href="#" class="image fit"><img src="static/images/pic13.jpg" alt="" /></a>
+										</div>
+										<div class="6u">
+											<a href="#" class="image fit"><img src="static/images/pic14.jpg" alt="" /></a>
+										</div>
+										<div class="6u$">
+											<a href="#" class="image fit"><img src="static/images/pic15.jpg" alt="" /></a>
+										</div>
+									</div>
+								</section>
+
+						</div>
+						<hr />
+                         {% endcomment %}
+						<div class="row">
+							<div class="12u">
+                    {% comment "Footer" %}
+
+								<!-- Contact -->
+									<section class="contact">
+										<header>
+											<h3>Nisl turpis nascetur interdum?</h3>
+										</header>
+										<p>Urna nisl non quis interdum mus ornare ridiculus egestas ridiculus lobortis vivamus tempor aliquet.</p>
+										<ul class="icons">
+											<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+											<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+											<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+											<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
+											<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+											<li><a href="#" class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
+										</ul>
+									</section>
+                         {% endcomment %}
+								<!-- Copyright -->
+									<div class="copyright">
+										<ul class="menu">
+											<li>&copy; Unito.it All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+										</ul>
+									</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="static/assets/js/jquery.min.js"></script>
+			<script src="static/assets/js/jquery.dropotron.min.js"></script>
+			<script src="static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="static/assets/js/jquery.onvisible.min.js"></script>
+			<script src="static/assets/js/skel.min.js"></script>
+			<script src="static/assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="static/assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="static/assets/js/main.js"></script>
+
+	</body>
+</html>
+

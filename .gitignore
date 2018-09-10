@@ -1,0 +1,9 @@
+.env
+.idea
+.git
+db.sqlite3
+media/*
+cache/*
+*.py[cod]
+tasks.py
+requirements/production.txt
