@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+{% load static %}
+<html>
+{% block html_header %}
+    {% include "header.html" %}
+{% endblock html_header %}
+
+{% block body_class %}
+    <body class="homepage">
+{% endblock body_class %}
+		<div id="page-wrapper">
+        {% block header %}
+			<!-- Header -->
+				<div id="header">
+                    {% block inner %}
+				    <!-- Inner -->
+
+                    {% endblock inner %}
+                    {% block nav %}
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="/">Home</a></li>
+								<li>
+									<a href="#">Siti archiviati</a>
+									<ul>
+                                        <li><a href="/summary" target="_blank">Tutti i siti</a></li>
+                                        <li><br/></li>
+
+                                    {% for item in  items %}
+                                        <li><a href="{{ item.new_url }}" target="_blank">{{ item.old_url }}</a></li>
+                                    {% endfor %}
+									</ul>
+								</li>
+								<li><a href="/">Contatti</a></li>
+						<!-- 		<li><a href="left-sidebar.html">Left Sidebar</a></li>-->
+						<!-- 		<li><a href="right-sidebar.html">Right Sidebar</a></li>-->
+						<!-- 		<li><a href="no-sidebar.html">No Sidebar</a></li>-->
+							</ul>
+						</nav>
+                    {% endblock nav %}
+				</div>
+        {% endblock header %}
+        {% block Banner %}
+			<!-- Banner -->
+
+        {% endblock Banner %}
+        {% block Carousel %}
+			<!-- Carousel -->
+
+        {% endblock Carousel %}
+        {% block Main %}
+			<!-- Main -->
+
+        {% endblock Main %}
+        {% block Features %}
+			<!-- Features -->
+
+        {% endblock Features %}
+
+        {% block footer %}
+            {% include "footer.html" %}
+        {% endblock footer  %}
+		</div>
+
+        {% block javascript %}
+            {% include "javascript.html" %}
+        {% endblock javascript  %}
+
+	</body>
+</html>
+
+
+
