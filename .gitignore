@@ -6,4 +6,5 @@ media/*
 cache/*
 *.py[cod]
 tasks.py
-requirements/production.txt
+site_archives/migrations/__pycache__
+added_static/

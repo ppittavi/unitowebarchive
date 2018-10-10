@@ -1,10 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+{% block body_class %}<body class="no-sidebar is-preload"> {% endblock body_class %}
+    {% block inner %}
+				    <!-- Inner -->
+						<div class="inner">
+							<header>
+								<h1><a href="/" id="logo">Unito Web Archive</a></h1>
+
+							</header>
+
+						</div>
+    {% endblock inner %}
+	{% block Main %}
+
+				<div class="wrapper style1">
+
+					<section id="features" class="container special">
+						<header>
+                            <h2>Elenco completo dei siti web archiviati da <a href="https://www.unito.it" target="_blank"> unito.it</a></h2>
+							<p>In ordine di archiviazione</p>
+						</header>
+						<div class="row">
+
+                            {% load thumbnail %}
+
+                               {% for item in  items %}
+                                        <article class="4u 12u(mobile) special">
+								        <a href="{{ item.new_url }}" class="image featured">
+                                            {% thumbnail item.screenshot '368x256' crop="top" as im %}
+                                            <a href="{{ item.new_url }}" class="image featured" target="_blank"><img src="{{ im.url }}" alt="" /></a>
+                                            {% endthumbnail %}
+                                        </a>
+								        <header>
+                                            <h3><a href="{{ item.new_url }}" target="_blank">{{ item.old_url }}</a></h3>
+								        </header>
+								        <p>
+                                            {{ item.short_desc }}
+								        </p>
+							            </article>
+                                {% endfor %}
+						</div>
+					</section>
+
+				</div>
+
+
+
+	{% endblock Main %}
