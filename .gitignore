@@ -1,6 +1,7 @@
 .env
 .idea
 .git
+.*.swp
 db.sqlite3
 media/*
 cache/*
