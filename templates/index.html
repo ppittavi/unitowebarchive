@@ -1,5 +1,6 @@
-
 {% extends "base.html" %}
+{% load static %}
+
     {% block inner %}
 				    <!-- Inner -->
 						<div class="inner">
@@ -52,7 +53,7 @@
 				<div class="wrapper style2">
 
 					<article id="main" class="container special">
-						<a href="#" class="image featured"><img src="static/images/pic06.jpg" alt="" /></a>
+						<a href="#" class="image featured"><img src="{% static "/images/code.jpg" %}" alt="" /></a>
 						<header>
 							<h2><a href="#">Come avviene l'archiviazione dei siti?</a></h2>
 							<p>Per archiviare i siti ci avvaliamo del software <a href="http://www.httrack.com/" target="_blank" >Httrack</a>
@@ -84,7 +85,7 @@
 						</header>
 						<div class="row">
 							<article class="4u 12u(mobile) special">
-								<a href="#" class="image featured"><img src="static/images/pic07.jpg" alt="" /></a>
+								<a href="#" class="image featured"><img src="{% static "images/01_backup.jpg" %}" alt="" /></a>
 								<header>
 									<h3><a href="#">1. BACKUP prima di tutto</a></h3>
 								</header>
@@ -96,7 +97,7 @@
 								</p>
 							</article>
 							<article class="4u 12u(mobile) special">
-								<a href="#" class="image featured"><img src="static/images/pic08.jpg" alt="" /></a>
+								<a href="#" class="image featured"><img src="{% static "images/02_archive.jpg" %}" alt="" /></a>
 								<header>
 									<h3><a href="#">2. Richiedi l'archiviazione</a></h3>
 								</header>
@@ -106,7 +107,7 @@
 								</p>
 							</article>
 							<article class="4u 12u(mobile) special">
-								<a href="#" class="image featured"><img src="static/images/pic09.jpg" alt="" /></a>
+								<a href="#" class="image featured"><img src="{% static "images/03_verify.jpg" %}" alt="" /></a>
 								<header>
 									<h3><a href="#">3 Verifica e Redirect</a></h3>
 								</header>

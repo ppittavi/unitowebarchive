@@ -15,6 +15,7 @@ import os
 # into your settings, but ImproperlyConfigured is an exception.
 from django.core.exceptions import ImproperlyConfigured
 
+
 def get_env_variable(var_name):
     """Get the environment variable or return exception."""
     try:
@@ -23,6 +24,7 @@ def get_env_variable(var_name):
         error_msg = "Set the {} environment variable".format(var_name)
 
     raise ImproperlyConfigured(error_msg)
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -34,7 +36,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = get_env_variable("UNITOWEBARCHIVING_SECRET_KEY")
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -65,7 +66,7 @@ ROOT_URLCONF = 'unitowebarchive.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -98,14 +99,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-#LANGUAGE_CODE = 'en-us'
+# LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'it-it'
 
-#TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
 TIME_ZONE = 'Europe/Rome'
 
 USE_I18N = True
@@ -119,8 +119,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-                os.path.join(BASE_DIR, 'added_static'),
-                ]
-MEDIA_URL =  '/media/'
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
+    os.path.join(BASE_DIR, 'static'),
+]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MAX_RUN_TIME = 360
