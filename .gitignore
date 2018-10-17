@@ -4,7 +4,6 @@
 .*.swp
 db.sqlite3
 media/*
-cache/*
 *.py[cod]
 tasks.py
 site_archives/migrations/__pycache__
