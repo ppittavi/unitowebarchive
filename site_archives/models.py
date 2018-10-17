@@ -18,4 +18,4 @@ class Archive(models.Model):
     screenshot = models.ImageField(null=True, blank=True)
     short_desc = models.CharField(max_length=500)
     description = models.TextField(null=True, blank=True)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User,models.SET_NULL,null=True)
