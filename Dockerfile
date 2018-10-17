@@ -6,5 +6,3 @@ WORKDIR /code
 RUN pip install --no-cache-dir -r requirements/production.txt
 RUN apt-get -q update
 RUN apt-get -qy install httrack
-ENV DJANGO_SETTINGS_MODULE=unitowebarchive.settings.production
-RUN DATABASE_URL=none /venv/bin/python manage.py collectstatic --noinput
