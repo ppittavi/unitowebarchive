@@ -18,7 +18,8 @@
 			<!-- Banner -->
 				<section id="banner">
 					<header>
-						<h2>I siti archiviati da Unito non sono più aggiornati <br/> e sono stati archiviati in <strong>HTML</strong> statico.</h2>
+						<h2>I siti archiviati da Unito non sono più aggiornati <br/> e sono stati archiviati in
+							<strong><a href="https://it.wikipedia.org/wiki/HTML" target="_blank"> HTML</a></strong> statico.</h2>
 
 						<p>
 							Tutti i contenuti dinamici (ricerche,forms, etc) potrebbero quindi non funzionare.<br/>
@@ -38,7 +39,7 @@
                             <a href="{{ item.new_url }}" class="image featured"><img src="{{ im.url }}" alt="" /></a>
                             {% endthumbnail %}
 							<header>
-                                <h3><a href="{{ item.new_url }}" target="_blank">{{ item.old_url }}</a></h3>
+                                <h3><a href="{{ item.new_url }}" target="_blank">{{ item.old_url|truncatechars_html:30 }}</a></h3>
 							</header>
                             <p>{{ item.short_desc }}</p>
 
@@ -85,9 +86,10 @@
 						</header>
 						<div class="row">
 							<article class="4u 12u(mobile) special">
-								<a href="#" class="image featured"><img src="{% static "images/01_backup.jpg" %}" alt="" /></a>
+								<a href="https://it.wikipedia.org/wiki/Backup" target="_blank" class="image featured">
+                                    <img src="{% static "images/01_backup.jpg" %}" alt="" /></a>
 								<header>
-									<h3><a href="#">1. BACKUP prima di tutto</a></h3>
+									<h3><a href="https://it.wikipedia.org/wiki/Backup" target="_blank" >1. BACKUP prima di tutto</a></h3>
 								</header>
 								<p>
                                     Prima di richiedere l'archiviazione resta a carico dell'interessato effettuare una copia di
@@ -97,9 +99,10 @@
 								</p>
 							</article>
 							<article class="4u 12u(mobile) special">
-								<a href="#" class="image featured"><img src="{% static "images/02_archive.jpg" %}" alt="" /></a>
+								<a href="https://help.unito.it" target="_blank" class="image featured">
+                                    <img src="{% static "images/02_archive.jpg" %}" alt="" /></a>
 								<header>
-									<h3><a href="#">2. Richiedi l'archiviazione</a></h3>
+									<h3><a href="https://help.unito.it" target="_blank" >2. Richiedi l'archiviazione</a></h3>
 								</header>
 								<p>
                                  Apri un <a href="https://help.unito.it" target="_blank" >ticket</a> indicando quale sito vuoi  archiviare.<br/>
@@ -108,9 +111,9 @@
 								</p>
 							</article>
 							<article class="4u 12u(mobile) special">
-								<a href="#" class="image featured"><img src="{% static "images/03_verify.jpg" %}" alt="" /></a>
+								<a href="https://help.unito.it" target="_blank" class="image featured"><img src="{% static "images/03_verify.jpg" %}" alt="" /></a>
 								<header>
-									<h3><a href="#">3 Verifica e Redirect</a></h3>
+									<h3><a href="https://help.unito.it" target="_blank" > Verifica e Conferma</a></h3>
 								</header>
 								<p>
                                     Verifica l'archiviazione  automatica del sito attraverso l'indirizzo ricevuto nel ticket, se il risultato ti
